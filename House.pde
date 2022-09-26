@@ -11,23 +11,28 @@ color red    = #c1121f;
 color yellow = #fee440;
 color wall = color(237, 234, 146);
 color lightBlue = color(179, 240, 250);
-color sky;
+color moon = color(188, 195, 198);
 
-float sunX, sunY, sun;
+float sunX, sunY, moonX, moonY;
 
 void setup() {
-  skyN = 255;
-  sky = color (0, 0, skyN);
+  skyN = 99;
   size(800, 800);
-  sunX = 400;
+  sunX = 650;
   sunY = 100;
-  
+  moonX = 650;
+  moonY = -600;
 }
 
 void draw() {
-  sun = 1.1*1.1;
-  background(sky);
-  skyN = skyN - 5;
+  colorMode(HSB);
+  background(199, 99, skyN);
+  stroke(yellow);
+  fill(yellow);
+  circle(sunX, sunY, 100);
+  stroke(moon);
+  fill(moon);
+  circle(moonX, moonY, 100);
   fill(green);
   stroke(green);
   rect(0, 500, 800, 400);
@@ -56,21 +61,19 @@ void draw() {
   fill(255);
   rect(350, 500, 100, 100);
   line(400, 500, 400, 600);
-  fill(yellow);
-  circle(sunX, sunY, 100);
   fill(lightBlue);
   rect(200, 500, 50, 50);
   rect(550, 500, 50, 50);
   
-  sunX = sunX + 2;
+  sunY = sunY + 2;
+  moonY = moonY + 2;
   
-  if (sunX > 400) {
-    sunY = sunY + sun;
-  } else if (sunX < 400) {
-    sunY = sunY - 1;
+  if (sunY > 600) {
+    sunY = -800;
   }
-  
-  if (sunX > 900) {
-    sunX = -100;
+  if (moonY > 600) {
+    moonY = -800;
   }
 }
+
+//

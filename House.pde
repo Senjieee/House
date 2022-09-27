@@ -2,9 +2,6 @@
 //1-2
 //Sept 10 2022
 
-int skyN;
-int skyC;
-
 color green  = color(42, 247, 40);
 color blue   = color(96, 165, 216);
 color red    = #c1121f;
@@ -13,7 +10,7 @@ color wall = color(237, 234, 146);
 color lightBlue = color(179, 240, 250);
 color moon = color(188, 195, 198);
 
-float sunX, sunY, moonX, moonY;
+float sunX, sunY, moonX, moonY, skyN;
 
 void setup() {
   skyN = 99;
@@ -25,7 +22,8 @@ void setup() {
 }
 
 void draw() {
-  colorMode(HSB);
+  skyN = skyN - 0.1;
+  colorMode(HSB, 360, 100, 100);
   background(199, 99, skyN);
   stroke(yellow);
   fill(yellow);
